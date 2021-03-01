@@ -1,0 +1,644 @@
+{
+	"compiler": {
+		"version": "0.7.4+commit.3f05b770"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_uniSwapTokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_auroxTokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_stakingMaster",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_epochStart",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "fallback"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "currentEpoch",
+						"type": "uint256"
+					}
+				],
+				"name": "_getSecondsToEpochEnd",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "lastClaimedTimestamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "currentEpoch",
+						"type": "uint256"
+					}
+				],
+				"name": "_returnClaimSecondsForPulledLiquidity",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "epoch",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "currentEpoch",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastEpochClaimed",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastClaimedTimestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "_returnEpochClaimSeconds",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "_returnEpochToTimestamp",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "usersInvestmentTotal",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "overallInvestmentTotal",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "secondsToClaim",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalReward",
+						"type": "uint256"
+					}
+				],
+				"name": "_returnRewardAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "addLiquidity",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bool",
+						"name": "_sendRewardsToStaking",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "stakeDuration",
+						"type": "uint256"
+					}
+				],
+				"name": "claimRewards",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "epochAmounts",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "shareTotal",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "allPrevInvestmentTotals",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "currentInvestmentTotal",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "lastEpochUpdate",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "removeLiquidity",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					}
+				],
+				"name": "returnAllClaimableRewardAmounts",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "rewardTotal",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastLiquidityAddedEpochReference",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "returnCurrentAPY",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "returnCurrentEpoch",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "epoch",
+						"type": "uint256"
+					}
+				],
+				"name": "returnGivenEpochEndTime",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "epoch",
+						"type": "uint256"
+					}
+				],
+				"name": "returnGivenEpochStartTime",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "currentEpoch",
+						"type": "uint256"
+					}
+				],
+				"name": "returnIfInFirstDayOfEpoch",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "epoch",
+						"type": "uint256"
+					}
+				],
+				"name": "returnTotalRewardForEpoch",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "epoch",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					}
+				],
+				"name": "returnUsersEpochTotals",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "shareTotal",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "currentInvestmentTotal",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "allPrevInvestmentTotals",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					}
+				],
+				"name": "returnUsersInvestmentTotal",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "userInvestments",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "lastLiquidityAddedEpochReference",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastEpochUpdate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastClaimedTimestamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastEpochLiquidityWithdrawn",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"addLiquidity(uint256)": {
+					"details": "This function adds the liquidity to the provider contract and does all the work for the storage of epoch data, updating of totals, aggregating currentInvestmentTotal's and adding to the overall totals.",
+					"params": {
+						"_amount": "The amount of liquidity to add"
+					}
+				},
+				"claimRewards(bool,uint256)": {
+					"details": "This functions claims all available rewards for the user, it looks through all epoch's since when they last claimed rewards and calculates the sum of their rewards to claim",
+					"params": {
+						"_sendRewardsToStaking": "Whether the rewards are to be sent into a staking contract",
+						"stakeDuration": "The duration of the stake to be created"
+					}
+				},
+				"removeLiquidity(uint256)": {
+					"details": "This function removes the specified amount from the user's total and sends their tokens back to the user. The user will be penalised 10% if withdrawing outside of the first day in any givene poch",
+					"params": {
+						"_amount": "The amount to withdraw"
+					}
+				},
+				"returnAllClaimableRewardAmounts(address)": {
+					"details": "This function returns the available amount to claim for the given user.",
+					"params": {
+						"_user": "The address of the user to return the claimable amounts for"
+					},
+					"returns": {
+						"lastLiquidityAddedEpochReference": "The last epoch where the user added liquidity",
+						"rewardTotal": "The reward total to return"
+					}
+				},
+				"returnCurrentAPY()": {
+					"details": "Returns the current APR of the Provider pool",
+					"returns": {
+						"_0": "Returns the APR"
+					}
+				},
+				"returnCurrentEpoch()": {
+					"details": "Returns the current epoch to the user",
+					"returns": {
+						"_0": "The current epoch"
+					}
+				},
+				"returnUsersEpochTotals(uint256,address)": {
+					"details": "The various investment values for a user based on a given epoch",
+					"params": {
+						"_user": "The user to return totals for",
+						"epoch": "The given epoch to return the values for"
+					},
+					"returns": {
+						"allPrevInvestmentTotals": "The sum of all amounts made into the Provider contract at the current epoch's time",
+						"currentInvestmentTotal": "The user's raw investment total for the given epoch",
+						"shareTotal": "The user's proportional share total based on when they invested into the epoch"
+					}
+				},
+				"returnUsersInvestmentTotal(address)": {
+					"details": "Returns the current user's investment total in the provider",
+					"params": {
+						"_user": "The user's address to return the total for"
+					},
+					"returns": {
+						"_0": "The user's stake total"
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/contracts/Provider/Provider.sol": "Provider"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/contracts/Provider/IProvider.sol": {
+			"keccak256": "0xa21c129a603f1d8a7f0c5646d8ef41558bb84fd9391841d6c7ed4687d094dba0",
+			"urls": [
+				"bzz-raw://cdb97ada03dd09c53a50160efcc9c48387de8ded475e38262efd64a91b9c6c1a",
+				"dweb:/ipfs/QmdR81pnxbNe7K5akujSZuXn1Q3Q7YeeACByq3ByqHtd2Z"
+			]
+		},
+		"localhost/contracts/Provider/Provider.sol": {
+			"keccak256": "0xa5aea44b240fbcff0475477eca594f7baa681a63a8d2552f102c9b217f7e7548",
+			"urls": [
+				"bzz-raw://ce41e6b6e21a78044050d2ed6d5680ad89688f153dae5b4b4cc223f2bf30ee42",
+				"dweb:/ipfs/QmNiYPNXKPihz6GZVB6KvZgTkz2tPw3YUcaJCALHbggTmh"
+			]
+		},
+		"localhost/contracts/StakingMaster/IStakingMaster.sol": {
+			"keccak256": "0x4592d0d3dd63d2aeaad43ff9ae5775a7a0d34a72454e9ee75c93cefd0afa57cf",
+			"urls": [
+				"bzz-raw://5c4f97c85853d864690dd9e202d70422cae4d8b6274c45f43448b5feb6d72543",
+				"dweb:/ipfs/QmW2S5oQcVqncUTYQTqymzEzXhUQa3Z6TWajTGSy2CR69Y"
+			]
+		},
+		"localhost/contracts/Vesting/TokenVesting.sol": {
+			"keccak256": "0xb7e152dd2bfc264b2cae3fa6ea8e976299b9a6c23a651510d5d9de3e409e216a",
+			"urls": [
+				"bzz-raw://ea665fc9b26226cf5b9363e596acf0fb0fc7ae88555f85c8654f65236e7cda37",
+				"dweb:/ipfs/QmcTFP6LpC37pqcy1G4txdKzxJrfKaFnhQCM17EgtsaEwv"
+			]
+		},
+		"openzeppelin-solidity/contracts/GSN/Context.sol": {
+			"keccak256": "0x8d3cb350f04ff49cfb10aef08d87f19dcbaecc8027b0bed12f3275cd12f38cf0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ded47ec7c96750f9bd04bbbc84f659992d4ba901cb7b532a52cd468272cf378f",
+				"dweb:/ipfs/QmfBrGtQP7rZEqEg6Wz6jh2N2Kukpj1z5v3CGWmAqrzm96"
+			]
+		},
+		"openzeppelin-solidity/contracts/access/Ownable.sol": {
+			"keccak256": "0xf7c39c7e6d06ed3bda90cfefbcbf2ddc32c599c3d6721746546ad64946efccaa",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://cb57a28e189cd8b05748db44bdd51d608e6f1364dd1b35ad921e1bc82c10631e",
+				"dweb:/ipfs/QmaWWTBbVu2pRR9XUbE4iC159NoP59cRF9ZJwhf4ghFN9i"
+			]
+		},
+		"openzeppelin-solidity/contracts/math/SafeMath.sol": {
+			"keccak256": "0x3b21f2c8d626de3b9925ae33e972d8bf5c8b1bffb3f4ee94daeed7d0679036e6",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7f8d45329fecbf0836ad7543330c3ecd0f8d0ffa42d4016278c3eb2215fdcdfe",
+				"dweb:/ipfs/QmXWLT7GcnHtA5NiD6MFi2CV3EWJY4wv5mLNnypqYDrxL3"
+			]
+		},
+		"openzeppelin-solidity/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0x5f02220344881ce43204ae4a6281145a67bc52c2bb1290a791857df3d19d78f5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://24427744bd3e6cb73c17010119af12a318289c0253a4d9acb8576c9fb3797b08",
+				"dweb:/ipfs/QmTLDqpKRBuxGxRAmjgXt9AkXyACW3MtKzi7PYjm5iMfGC"
+			]
+		},
+		"openzeppelin-solidity/contracts/token/ERC20/SafeERC20.sol": {
+			"keccak256": "0xf12dfbe97e6276980b83d2830bb0eb75e0cf4f3e626c2471137f82158ae6a0fc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b3a849c2d95e85463909e5b5c920b13e7a11216ca14127085e16d22b9379d52a",
+				"dweb:/ipfs/QmUg3CZDbCCcQdroEpexBy5ZFd5vD1UWijWQq9qHZjtJNQ"
+			]
+		},
+		"openzeppelin-solidity/contracts/utils/Address.sol": {
+			"keccak256": "0xa6a15ddddcbf29d2922a1e0d4151b5d2d33da24b93cc9ebc12390e0d855532f8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7c119bcaecfa853d564ac88d312777f75fa1126a3bca88a3371adb0ad9f35cb0",
+				"dweb:/ipfs/QmY9UPuXeSKq86Zh38fE43VGQPhKMN34mkuFSFqPcr6nvZ"
+			]
+		},
+		"openzeppelin-solidity/contracts/utils/ReentrancyGuard.sol": {
+			"keccak256": "0x8bbbc2f5c10065ee272592ae0a7a6ceb23de2fbd81564ee0bb015ecf404d5f61",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b95e56c1640d0ef789fc5c16269e141e992f6c8ac97cc6d377bd3825e9cab182",
+				"dweb:/ipfs/QmVzaxJZY51EhagrcNnkxoU6Uq17RhATe7aHvtkC6wUkgK"
+			]
+		}
+	},
+	"version": 1
+}

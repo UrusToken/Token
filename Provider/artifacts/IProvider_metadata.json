@@ -1,0 +1,255 @@
+{
+	"compiler": {
+		"version": "0.7.4+commit.3f05b770"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "addLiquidity",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bool",
+						"name": "_sendRewardsToStaking",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "stakeDuration",
+						"type": "uint256"
+					}
+				],
+				"name": "claimRewards",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "removeLiquidity",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					}
+				],
+				"name": "returnAllClaimableRewardAmounts",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "rewardTotal",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lastLiquidityAddedEpochReference",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "returnCurrentAPY",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "returnCurrentEpoch",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "epoch",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					}
+				],
+				"name": "returnUsersEpochTotals",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "shareTotal",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "currentInvestmentTotal",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "allPrevInvestmentTotals",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					}
+				],
+				"name": "returnUsersInvestmentTotal",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"addLiquidity(uint256)": {
+					"details": "This function adds the liquidity to the provider contract and does all the work for the storage of epoch data, updating of totals, aggregating currentInvestmentTotal's and adding to the overall totals.",
+					"params": {
+						"_amount": "The amount of liquidity to add"
+					}
+				},
+				"claimRewards(bool,uint256)": {
+					"details": "This functions claims all available rewards for the user, it looks through all epoch's since when they last claimed rewards and calculates the sum of their rewards to claim",
+					"params": {
+						"_sendRewardsToStaking": "Whether the rewards are to be sent into a staking contract",
+						"stakeDuration": "The duration of the stake to be created"
+					}
+				},
+				"removeLiquidity(uint256)": {
+					"details": "This function removes the specified amount from the user's total and sends their tokens back to the user. The user will be penalised 10% if withdrawing outside of the first day in any givene poch",
+					"params": {
+						"_amount": "The amount to withdraw"
+					}
+				},
+				"returnAllClaimableRewardAmounts(address)": {
+					"details": "This function returns the available amount to claim for the given user.",
+					"params": {
+						"_user": "The address of the user to return the claimable amounts for"
+					},
+					"returns": {
+						"lastLiquidityAddedEpochReference": "The last epoch where the user added liquidity",
+						"rewardTotal": "The reward total to return"
+					}
+				},
+				"returnCurrentAPY()": {
+					"details": "Returns the current APR of the Provider pool",
+					"returns": {
+						"_0": "Returns the APR"
+					}
+				},
+				"returnCurrentEpoch()": {
+					"details": "Returns the current epoch to the user",
+					"returns": {
+						"_0": "The current epoch"
+					}
+				},
+				"returnUsersEpochTotals(uint256,address)": {
+					"details": "The various investment values for a user based on a given epoch",
+					"params": {
+						"_user": "The user to return totals for",
+						"epoch": "The given epoch to return the values for"
+					},
+					"returns": {
+						"allPrevInvestmentTotals": "The sum of all amounts made into the Provider contract at the current epoch's time",
+						"currentInvestmentTotal": "The user's raw investment total for the given epoch",
+						"shareTotal": "The user's proportional share total based on when they invested into the epoch"
+					}
+				},
+				"returnUsersInvestmentTotal(address)": {
+					"details": "Returns the current user's investment total in the provider",
+					"params": {
+						"_user": "The user's address to return the total for"
+					},
+					"returns": {
+						"_0": "The user's stake total"
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/contracts/Provider/IProvider.sol": "IProvider"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/contracts/Provider/IProvider.sol": {
+			"keccak256": "0xa21c129a603f1d8a7f0c5646d8ef41558bb84fd9391841d6c7ed4687d094dba0",
+			"urls": [
+				"bzz-raw://cdb97ada03dd09c53a50160efcc9c48387de8ded475e38262efd64a91b9c6c1a",
+				"dweb:/ipfs/QmdR81pnxbNe7K5akujSZuXn1Q3Q7YeeACByq3ByqHtd2Z"
+			]
+		}
+	},
+	"version": 1
+}

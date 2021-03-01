@@ -1,0 +1,295 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"görli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"gasEstimates": null,
+		"methodIdentifiers": {
+			"addToStake(address,uint256)": "a43b0c8d",
+			"claimRewards(address)": "ef5cfb8c",
+			"closeStake(address)": "8bd40469",
+			"createStaking(uint256,uint256,address)": "e0c6920a",
+			"returnCurrentStakeValue(address)": "78174930",
+			"returnStakeState(address)": "ca20da34",
+			"returnStakesClaimablePoolRewards(address)": "b0baa5ab",
+			"returnStakesClaimableRewards(address)": "ee7954a6",
+			"returnUsersStakes(address)": "9d878cc2",
+			"returnUsersTotalStakeValue(address)": "ec19e2d5",
+			"returnValidUsersProviderStake(address)": "93a3d6de"
+		}
+	},
+	"abi": [
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_stakingAddress",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_amount",
+					"type": "uint256"
+				}
+			],
+			"name": "addToStake",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_stakingAddress",
+					"type": "address"
+				}
+			],
+			"name": "claimRewards",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_stakingAddress",
+					"type": "address"
+				}
+			],
+			"name": "closeStake",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_amount",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_duration",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "_recipient",
+					"type": "address"
+				}
+			],
+			"name": "createStaking",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_stakingAddress",
+					"type": "address"
+				}
+			],
+			"name": "returnCurrentStakeValue",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_stakingAddress",
+					"type": "address"
+				}
+			],
+			"name": "returnStakeState",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "currentStakeValue",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "stakeEndTime",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "interestRate",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "lastUpdate",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bool",
+					"name": "compounding",
+					"type": "bool"
+				},
+				{
+					"internalType": "uint256",
+					"name": "rawInvestedAmount",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "stakeStartTime",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_stakingAddress",
+					"type": "address"
+				}
+			],
+			"name": "returnStakesClaimablePoolRewards",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_stakingAddress",
+					"type": "address"
+				}
+			],
+			"name": "returnStakesClaimableRewards",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_user",
+					"type": "address"
+				}
+			],
+			"name": "returnUsersStakes",
+			"outputs": [
+				{
+					"internalType": "address[]",
+					"name": "usersStakes",
+					"type": "address[]"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_user",
+					"type": "address"
+				}
+			],
+			"name": "returnUsersTotalStakeValue",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_user",
+					"type": "address"
+				}
+			],
+			"name": "returnValidUsersProviderStake",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		}
+	]
+}
